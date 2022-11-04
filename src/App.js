@@ -1,22 +1,21 @@
-import logo from "./logo.svg"
+import React from "react"
+import styles from "./style"
 
-function App() {
+import { useGlobalContext } from "./context"
+
+import Navbar from "./components/Navbar"
+
+const App = () => {
+  const { isDarkMode } = useGlobalContext()
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p className="text-3xl">
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className={`${isDarkMode ? "dark" : ""}  w-full overflow-hidden`}>
+      <div
+        className={`dark:bg-darkbg dark:text-darktext ${styles.paddingX} ${styles.flexCenter}`}
+      >
+        <div className={`${styles.boxWidth} `}>
+          <Navbar />
+        </div>
+      </div>
     </div>
   )
 }
