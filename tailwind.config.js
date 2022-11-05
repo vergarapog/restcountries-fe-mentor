@@ -7,21 +7,15 @@ module.exports = {
     extend: {
       colors: {
         darkbg: "hsl(207, 26%, 17%)",
-        lightbg: "hsl(0, 0%, 98%)",
         darktext: "hsl(0, 0%, 100%)",
+        darkelement: "hsl(209, 23%, 22%)",
+        lightbg: "hsl(0, 0%, 98%)",
         lighttext: "hsl(200, 15%, 8%)",
+        lightelement: "hsl(0, 0%, 100%)",
       },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
       },
-    },
-    screens: {
-      xs: "480px",
-      ss: "620px",
-      sm: "768px",
-      md: "1060px",
-      lg: "1200px",
-      xl: "1700px",
     },
   },
   plugins: [],
