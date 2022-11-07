@@ -22,7 +22,7 @@ const App = () => {
         </div>
       </div>
       <div
-        className={`bg-primary grow bg-lightbg dark:bg-darkbg ${styles.flexStart}`}
+        className={`bg-primary grow bg-lightbg dark:bg-darkbg ${styles.paddingX} ${styles.flexStart}`}
       >
         <div className={`${styles.boxWidth} `}>
           <Home />
