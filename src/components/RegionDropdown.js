@@ -5,8 +5,11 @@ const RegionDropdown = () => {
   const { isDarkMode } = useGlobalContext()
   return (
     <div className="relative w-52 text-lighttext dark:text-darktext">
-      <select className="appearance-none w-full bg-lightbg dark:bg-darkelement px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none">
-        <option value="" disabled selected hidden>
+      <select
+        className="appearance-none w-full bg-lightbg dark:bg-darkelement px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none"
+        defaultValue={"default"}
+      >
+        <option value="default" disabled hidden>
           Filter by Region
         </option>
         <option>All</option>
@@ -22,7 +25,7 @@ const RegionDropdown = () => {
         }`}
       >
         <svg
-          class="fill-current h-4 w-4"
+          className="fill-current h-4 w-4"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
         >

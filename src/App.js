@@ -5,6 +5,7 @@ import { useGlobalContext } from "./context"
 
 import Navbar from "./components/Navbar"
 import Home from "./Pages/Home"
+import Footer from "./components/Footer"
 
 const App = () => {
   const { isDarkMode } = useGlobalContext()
@@ -12,7 +13,7 @@ const App = () => {
     <div
       className={`${
         isDarkMode ? "dark" : ""
-      }  w-full overflow-hidden h-screen flex flex-col`}
+      }  w-full overflow-hidden flex flex-col font-poppins`}
     >
       <div
         className={`dark:bg-darkelement dark:text-darktext ${styles.paddingX} ${styles.flexCenter} border-b-4 border-gray-200 dark:border-gray-800`}
@@ -22,10 +23,11 @@ const App = () => {
         </div>
       </div>
       <div
-        className={`bg-primary grow bg-lightbg dark:bg-darkbg ${styles.paddingX} ${styles.flexStart}`}
+        className={`bg-primary bg-lightbg dark:bg-darkbg ${styles.paddingX} ${styles.flexStart}`}
       >
         <div className={`${styles.boxWidth} `}>
           <Home />
+          <Footer />
         </div>
       </div>
     </div>
