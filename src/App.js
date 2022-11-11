@@ -13,7 +13,7 @@ const App = () => {
     <div
       className={`${
         isDarkMode ? "dark" : ""
-      }  w-full overflow-hidden flex flex-col font-poppins`}
+      }  w-full overflow-hidden flex flex-col font-nunito`}
     >
       <div
         className={`dark:bg-darkelement dark:text-darktext ${styles.paddingX} ${styles.flexCenter} border-b-4 border-gray-200 dark:border-gray-800`}

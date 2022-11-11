@@ -3,7 +3,7 @@ import React from "react"
 const CountryList = () => {
   return (
     <div>
-      <div className="grid grid-cols-[repeat(4,1fr)] gap-9 justify-items-center items-center">
+      <div className="py-8 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center">
         <Country />
         <Country />
         <Country />
@@ -24,9 +24,19 @@ const Country = () => {
       <div>
         <img src="https://placekitten.com/640/360" alt="" />
       </div>{" "}
-      <div className="p-4">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Inventore,
-        magni.
+      <div className="p-4 text-lighttext dark:text-darktext">
+        <h2 className="font-extrabold text-lg">United States of America</h2>
+        <div className="pt-4 text-sm">
+          <p className="font-light">
+            <span className="font-semibold">Population:</span> 123123
+          </p>
+          <p className="font-light">
+            <span className="font-semibold">Region:</span> Europe
+          </p>
+          <p className="font-light">
+            <span className="font-semibold">Capital:</span> Berlin
+          </p>
+        </div>
       </div>
     </div>
   )
