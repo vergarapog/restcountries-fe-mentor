@@ -4,11 +4,21 @@ import styles from "./style"
 import { useGlobalContext } from "./context"
 
 import Navbar from "./components/Navbar"
-import Home from "./Pages/Home"
+import Home from "./pages/Home"
 import Footer from "./components/Footer"
+
+import { useDispatch } from "react-redux"
+import { useEffect } from "react"
+import { initializeCountries } from "./reducers/countriesReducer"
 
 const App = () => {
   const { isDarkMode } = useGlobalContext()
+  const dispatch = useDispatch()
+
+  useEffect(() => {
+    dispatch(initializeCountries())
+  }, [])
+
   return (
     <div
       className={`${
