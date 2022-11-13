@@ -7,7 +7,7 @@ const Navbar = () => {
   const { isDarkMode, setIsDarkMode } = useGlobalContext()
 
   return (
-    <nav className="flex py-6 justify-between">
+    <nav className="flex py-6 justify-between ">
       <div>
         <h1 className="text-base font-bold md:text-2xl">Where in the world?</h1>
       </div>
