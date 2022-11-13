@@ -12,11 +12,12 @@ import { useEffect } from "react"
 import { initializeCountries } from "./reducers/countriesReducer"
 
 const App = () => {
-  const { isDarkMode } = useGlobalContext()
+  const { isDarkMode, getDarkModePref } = useGlobalContext()
   const dispatch = useDispatch()
 
   useEffect(() => {
     dispatch(initializeCountries())
+    getDarkModePref()
   }, [])
 
   return (
