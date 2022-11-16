@@ -5,7 +5,11 @@ const CountryList = () => {
   const countries = useSelector((state) => state.countries)
 
   if (countries.length === 0) {
-    return <div>Loading...</div>
+    return (
+      <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-screen">
+        <div>Loading...</div>
+      </div>
+    )
   }
 
   return (
