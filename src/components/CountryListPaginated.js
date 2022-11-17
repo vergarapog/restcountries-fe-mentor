@@ -37,6 +37,8 @@ const CountryListPaginated = ({ itemsPerPage }) => {
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
+        previousLinkClassName="text-red-300"
+        containerClassName="flex space-x-4"
       />
     </>
   )
