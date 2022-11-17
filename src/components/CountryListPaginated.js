@@ -37,8 +37,8 @@ const CountryListPaginated = ({ itemsPerPage }) => {
         pageCount={pageCount}
         previousLabel="< previous"
         renderOnZeroPageCount={null}
-        previousLinkClassName="text-red-300"
-        containerClassName="flex space-x-4"
+        containerClassName="text-lighttext dark:text-darktext flex justify-center space-x-4"
+        activeLinkClassName="p-1.5 rounded-full bg-lighttext text-darktext dark:bg-darktext dark:text-lighttext"
       />
     </>
   )
@@ -47,7 +47,7 @@ const CountryListPaginated = ({ itemsPerPage }) => {
 const Countries = ({ countries }) => {
   return (
     <div>
-      <div className="py-8 grid grid-cols-1 ss:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center">
+      <div className="py-5 grid grid-cols-1 ss:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center rounded">
         {countries.map((country) => {
           return <Country key={country.name.official} country={country} />
         })}

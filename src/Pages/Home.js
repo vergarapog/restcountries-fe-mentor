@@ -1,8 +1,8 @@
 import React from "react"
-import styles from "../style"
+
 import Searchbar from "../components/Searchbar"
 import RegionDropdown from "../components/RegionDropdown"
-import CountryList from "../components/CountryList"
+
 import CountryListPaginated from "../components/CountryListPaginated"
 
 const Home = () => {
@@ -17,8 +17,7 @@ const Home = () => {
         </div>
       </div>
       <CountryListPaginated itemsPerPage={8} />
-
-      <CountryList />
+      {/* <CountryList /> */}
     </section>
   )
 }
