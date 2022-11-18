@@ -3,7 +3,17 @@ import ReactPaginate from "react-paginate"
 import { useSelector } from "react-redux"
 
 const CountryListPaginated = ({ itemsPerPage }) => {
-  const countries = useSelector((state) => state.countries)
+  const countries = useSelector((state) => {
+    if (state.searchFilter === "") {
+      return state.countries
+    } else {
+      return state.countries.filter((country) => {
+        return country.name.official
+          .toLowerCase()
+          .includes(state.searchFilter.toLowerCase())
+      })
+    }
+  })
 
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
@@ -24,6 +34,14 @@ const CountryListPaginated = ({ itemsPerPage }) => {
       `User requested page number ${event.selected}, which is offset ${newOffset}`
     )
     setItemOffset(newOffset)
+  }
+
+  if (countries.length === 0) {
+    return (
+      <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-screen">
+        <div>Loading...</div>
+      </div>
+    )
   }
 
   return (
@@ -47,7 +65,7 @@ const CountryListPaginated = ({ itemsPerPage }) => {
 const Countries = ({ countries }) => {
   return (
     <div>
-      <div className="py-5 grid grid-cols-1 ss:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center rounded">
+      <div className="py-5 grid grid-cols-1 ss:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center rounded min-h-[600px]">
         {countries.map((country) => {
           return <Country key={country.name.official} country={country} />
         })}

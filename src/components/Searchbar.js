@@ -2,9 +2,17 @@ import React from "react"
 
 import { MagnifyingGlass } from "phosphor-react"
 import { useGlobalContext } from "../context"
+import { setSearchFilter } from "../reducers/searchFilterReducer"
+import { useDispatch, useSelector } from "react-redux"
 
 const Searchbar = () => {
   const { isDarkMode } = useGlobalContext()
+  const searchFilter = useSelector((state) => state.searchFilter)
+  const dispatch = useDispatch()
+
+  const handleChange = (e) => {
+    dispatch(setSearchFilter(e.target.value))
+  }
 
   return (
     <div className="min-w flex bg-lightelement shadow dark:bg-darkelement px-4 rounded-lg space-x-2">
@@ -19,6 +27,8 @@ const Searchbar = () => {
         type="text"
         placeholder="Search for a country..."
         size="50"
+        value={searchFilter}
+        onChange={handleChange}
       />
     </div>
   )
