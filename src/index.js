@@ -10,11 +10,13 @@ import { configureStore } from "@reduxjs/toolkit"
 
 import countriesReducer from "./reducers/countriesReducer"
 import searchFilterReducer from "./reducers/searchFilterReducer"
+import regionFilterReducer from "./reducers/regionFilterReducer"
 
 const store = configureStore({
   reducer: {
     countries: countriesReducer,
     searchFilter: searchFilterReducer,
+    regionFilter: regionFilterReducer,
   },
 })
 

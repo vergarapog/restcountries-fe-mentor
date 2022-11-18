@@ -1,23 +1,32 @@
 import React from "react"
 import { useGlobalContext } from "../context"
+import { useDispatch, useSelector } from "react-redux"
+import { setRegionFilter } from "../reducers/regionFilterReducer"
 
 const RegionDropdown = () => {
   const { isDarkMode } = useGlobalContext()
+  const dispatch = useDispatch()
+  const selected = useSelector((state) => state.regionFilter)
+
+  const handleChangeRegion = (e) => {
+    dispatch(setRegionFilter(e.target.value))
+  }
   return (
     <div className="relative w-52 text-lighttext dark:text-darktext">
       <select
         className="appearance-none w-full bg-lightbg dark:bg-darkelement px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none"
-        defaultValue={"default"}
+        value={selected}
+        onChange={handleChangeRegion}
       >
         <option value="default" disabled hidden>
           Filter by Region
         </option>
-        <option>All</option>
-        <option>Africa</option>
-        <option>America</option>
-        <option>Asia</option>
-        <option>Europe</option>
-        <option>Oceania</option>
+        <option value="all">All</option>
+        <option value="africa">Africa</option>
+        <option value="america">America</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="oceania">Oceania</option>
       </select>
       <div
         className={`pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 ${
