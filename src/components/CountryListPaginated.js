@@ -31,11 +31,11 @@ const CountryListPaginated = ({ itemsPerPage }) => {
       <Countries countries={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="next >"
+        nextLabel=">"
         onPageChange={handlePageClick}
         pageRangeDisplayed={5}
         pageCount={pageCount}
-        previousLabel="< previous"
+        previousLabel="<"
         renderOnZeroPageCount={null}
         containerClassName="text-lighttext dark:text-darktext flex justify-center space-x-4"
         activeLinkClassName="p-1.5 rounded-full bg-lighttext text-darktext dark:bg-darktext dark:text-lighttext"
