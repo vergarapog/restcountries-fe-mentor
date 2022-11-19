@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react"
 import ReactPaginate from "react-paginate"
 import { useSelector } from "react-redux"
+import Loading from "./Loading"
 
 const CountryListPaginated = ({ itemsPerPage }) => {
   const countries = useSelector((state) => {
@@ -23,23 +24,25 @@ const CountryListPaginated = ({ itemsPerPage }) => {
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
   const endOffset = itemOffset + itemsPerPage
-  console.log(`Loading items from ${itemOffset} to ${endOffset}`)
+  // console.log(`Loading items from ${itemOffset} to ${endOffset}`)
   const currentItems = countries.slice(itemOffset, endOffset)
   const pageCount = Math.ceil(countries.length / itemsPerPage)
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
     const newOffset = (event.selected * itemsPerPage) % countries.length
-    console.log(
-      `User requested page number ${event.selected}, which is offset ${newOffset}`
-    )
+    // console.log(
+    //   `User requested page number ${event.selected}, which is offset ${newOffset}`
+    // )
     setItemOffset(newOffset)
   }
 
   if (countries.length === 0) {
     return (
-      <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-screen">
-        <div>Loading...</div>
+      <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-[50vh]">
+        <div>
+          <Loading />
+        </div>
       </div>
     )
   }
