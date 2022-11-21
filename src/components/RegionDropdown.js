@@ -3,6 +3,7 @@ import { useGlobalContext } from "../context"
 import { useDispatch, useSelector } from "react-redux"
 import { setRegionFilter } from "../reducers/regionFilterReducer"
 import { changeRegion } from "../reducers/countriesReducer"
+import { clearCountries } from "../reducers/countriesReducer"
 
 const RegionDropdown = () => {
   const { isDarkMode } = useGlobalContext()
@@ -10,6 +11,7 @@ const RegionDropdown = () => {
   const selected = useSelector((state) => state.regionFilter)
 
   const handleChangeRegion = (e) => {
+    dispatch(clearCountries())
     dispatch(setRegionFilter(e.target.value))
     dispatch(changeRegion(e.target.value))
   }

@@ -11,10 +11,14 @@ const blogSlice = createSlice({
     appendCountries(state, action) {
       return [...state, action.payload]
     },
+    clearCountries(state, action) {
+      return []
+    },
   },
 })
 
-export const { setCountries, appendCountries } = blogSlice.actions
+export const { setCountries, appendCountries, clearCountries } =
+  blogSlice.actions
 
 export const initializeCountries = () => {
   return async (dispatch) => {
