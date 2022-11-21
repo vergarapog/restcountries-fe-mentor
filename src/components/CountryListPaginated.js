@@ -39,7 +39,7 @@ const CountryListPaginated = ({ itemsPerPage }) => {
 
   if (countries.length === 0) {
     return (
-      <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-[50vh]">
+      <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-[60vh]">
         <div>
           <Loading />
         </div>

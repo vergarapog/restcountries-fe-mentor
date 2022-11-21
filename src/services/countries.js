@@ -11,27 +11,9 @@ const getAll = async () => {
   return response.data
 }
 
-const create = async (object) => {
-  const config = {
-    headers: { Authorization: token },
-  }
-  const response = await axios.post(baseUrl, object, config)
-
+const getByRegion = async (region) => {
+  const response = await axios.get(`${baseUrl}/region/${region}`)
   return response.data
 }
 
-const update = async (id, updatedObject) => {
-  const response = await axios.put(`${baseUrl}/${id}`, updatedObject)
-  return response.data
-}
-
-const destroy = async (id) => {
-  const config = {
-    headers: { Authorization: token },
-  }
-  const response = await axios.delete(`${baseUrl}/${id}`, config)
-
-  return response.data
-}
-
-export default { getAll, create, setToken, update, destroy }
+export default { getAll, getByRegion }

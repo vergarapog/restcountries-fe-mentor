@@ -2,6 +2,7 @@ import React from "react"
 import { useGlobalContext } from "../context"
 import { useDispatch, useSelector } from "react-redux"
 import { setRegionFilter } from "../reducers/regionFilterReducer"
+import { changeRegion } from "../reducers/countriesReducer"
 
 const RegionDropdown = () => {
   const { isDarkMode } = useGlobalContext()
@@ -10,6 +11,7 @@ const RegionDropdown = () => {
 
   const handleChangeRegion = (e) => {
     dispatch(setRegionFilter(e.target.value))
+    dispatch(changeRegion(e.target.value))
   }
   return (
     <div className="relative w-52 text-lighttext dark:text-darktext">
@@ -23,7 +25,7 @@ const RegionDropdown = () => {
         </option>
         <option value="all">All</option>
         <option value="africa">Africa</option>
-        <option value="america">America</option>
+        <option value="americas">Americas</option>
         <option value="asia">Asia</option>
         <option value="europe">Europe</option>
         <option value="oceania">Oceania</option>
