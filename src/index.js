@@ -12,6 +12,8 @@ import countriesReducer from "./reducers/countriesReducer"
 import searchFilterReducer from "./reducers/searchFilterReducer"
 import regionFilterReducer from "./reducers/regionFilterReducer"
 
+import { BrowserRouter as Router } from "react-router-dom"
+
 const store = configureStore({
   reducer: {
     countries: countriesReducer,
@@ -22,9 +24,11 @@ const store = configureStore({
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(
-  <Provider store={store}>
-    <AppProvider>
-      <App />
-    </AppProvider>
-  </Provider>
+  <Router>
+    <Provider store={store}>
+      <AppProvider>
+        <App />
+      </AppProvider>
+    </Provider>
+  </Router>
 )

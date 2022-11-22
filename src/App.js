@@ -11,6 +11,9 @@ import { useDispatch } from "react-redux"
 import { useEffect } from "react"
 import { initializeCountries } from "./reducers/countriesReducer"
 
+import { Routes, Route, Link } from "react-router-dom"
+import SingleCountry from "./pages/SingleCountry"
+
 const App = () => {
   const { isDarkMode, getDarkModePref } = useGlobalContext()
   const dispatch = useDispatch()
@@ -37,7 +40,11 @@ const App = () => {
         className={`bg-primary bg-lightbg dark:bg-darkbg ${styles.paddingX} ${styles.flexStart} transition duration-300`}
       >
         <div className={`${styles.boxWidth} `}>
-          <Home />
+          <Routes>
+            <Route path="/country/:id" element={<SingleCountry />} />
+            <Route path="/" element={<Home />} />
+            <Route path="*" element={<div>404 Not Found</div>} />
+          </Routes>
           <Footer />
         </div>
       </div>
