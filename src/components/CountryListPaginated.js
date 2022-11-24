@@ -72,8 +72,11 @@ const Countries = ({ countries }) => {
       <div className="py-5 grid grid-cols-1 ss:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center rounded min-h-[600px]">
         {countries.map((country) => {
           return (
-            <Link to={`country/${country.name.common}`}>
-              <Country key={country.name.official} country={country} />
+            <Link
+              to={`country/${country.name.common}`}
+              key={country.name.official}
+            >
+              <Country country={country} />
             </Link>
           )
         })}
