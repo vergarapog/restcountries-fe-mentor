@@ -14,6 +14,8 @@ import regionFilterReducer from "./reducers/regionFilterReducer"
 
 import { BrowserRouter as Router } from "react-router-dom"
 
+import ScrollToTop from "./components/ScrollToTop"
+
 const store = configureStore({
   reducer: {
     countries: countriesReducer,
@@ -27,6 +29,7 @@ root.render(
   <Router>
     <Provider store={store}>
       <AppProvider>
+        <ScrollToTop />
         <App />
       </AppProvider>
     </Provider>

@@ -97,7 +97,8 @@ const Country = ({ country }) => {
         <h2 className="font-extrabold text-lg">{name.common}</h2>
         <div className="pt-4 text-sm">
           <p className="font-light">
-            <span className="font-semibold">Population:</span> {population}
+            <span className="font-semibold">Population:</span>{" "}
+            {population.toLocaleString()}
           </p>
           <p className="font-light">
             <span className="font-semibold">Region:</span> {region}

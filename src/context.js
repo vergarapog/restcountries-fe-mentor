@@ -8,7 +8,7 @@ const AppProvider = ({ children }) => {
 
   const getDarkModePref = () => {
     const darkModePref = window.localStorage.getItem("isDarkMode")
-    console.log(darkModePref)
+
     if (darkModePref) {
       setDarkMode(darkModePref)
     }

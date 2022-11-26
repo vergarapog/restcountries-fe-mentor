@@ -1,10 +1,26 @@
 import React from "react"
 import { Link } from "react-router-dom"
 import { ArrowLeft } from "phosphor-react"
+import Loading from "../components/Loading"
 
 const SingleCountry = ({ country }) => {
   if (!country) {
-    return <div>Loading....</div>
+    return (
+      <section>
+        <div>
+          <Link to="/">
+            <button className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement">
+              <ArrowLeft size={"22px"} /> <div>Back</div>
+            </button>
+          </Link>
+        </div>
+        <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-[70vh]">
+          <div>
+            <Loading />
+          </div>
+        </div>
+      </section>
+    )
   }
   return (
     <section>
@@ -15,11 +31,11 @@ const SingleCountry = ({ country }) => {
           </button>
         </Link>
       </div>
-      <div className="bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext">
-        <img src={country.flags.png} className="w-full h-full" alt="" />
+      <div className="bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext max-h-52">
+        <img src={country.flags.png} className="w-full h-52" alt="" />
       </div>{" "}
       <div className=" p-4  text-lighttext dark:text-darktext">
-        <h2 className="font-extrabold text-xl">{country.name.common}</h2>
+        <h2 className="mt-8 font-extrabold text-xl">{country.name.common}</h2>
         <div className="pt-4 text-sm space-y-3">
           <div className="font-light flex space-x-2">
             <span className="font-semibold">Native name:</span>
@@ -71,6 +87,15 @@ const SingleCountry = ({ country }) => {
 
         <div className="pt-12 space-y-3">
           <h2>Border Countries:</h2>
+          <div className="flex space-x-4">
+            {country.borders.map((borderCountry) => {
+              return (
+                <div className="bg-lightelement dark:bg-darkelement">
+                  {borderCountry}
+                </div>
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>
