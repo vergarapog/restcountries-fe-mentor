@@ -2,8 +2,21 @@ import React from "react"
 import { Link } from "react-router-dom"
 import { ArrowLeft } from "phosphor-react"
 import Loading from "../components/Loading"
+import { useSelector } from "react-redux"
 
 const SingleCountry = ({ country }) => {
+  const countries = useSelector((state) => {
+    return state.countries
+  })
+
+  const convertToCommonName = (cca3Code) => {
+    const foundCountry = countries.find((country) => {
+      return country.cca3 === cca3Code
+    })
+
+    return foundCountry.name.common
+  }
+
   if (!country) {
     return (
       <section>
@@ -85,18 +98,35 @@ const SingleCountry = ({ country }) => {
           </p>
         </div>
 
-        <div className="pt-12 space-y-3">
-          <h2>Border Countries:</h2>
-          <div className="flex space-x-4">
-            {country.borders.map((borderCountry) => {
-              return (
-                <div className="bg-lightelement dark:bg-darkelement">
-                  {borderCountry}
-                </div>
-              )
-            })}
+        {country.borders && (
+          <div className="pt-12 space-y-3">
+            <h2>Border Countries:</h2>
+            <div className="flex space-x-4 text-sm">
+              {country.borders.map((borderCountry) => {
+                return (
+                  <div className="bg-lightelement dark:bg-darkelement py-1 px-2 rounded">
+                    {borderCountry}
+                  </div>
+                )
+              })}
+            </div>
           </div>
-        </div>
+        )}
+
+        {country.borders && (
+          <div className="pt-12 space-y-3">
+            <h2>Border Countries:</h2>
+            <div className="flex text-sm flex-wrap gap-4 content-evenly">
+              {country.borders.map((borderCountry) => {
+                return (
+                  <div className="bg-lightelement dark:bg-darkelement py-1 px-2 rounded">
+                    {convertToCommonName(borderCountry)}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
+        )}
       </div>
     </section>
   )
