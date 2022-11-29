@@ -83,18 +83,24 @@ const SingleCountry = ({ country }) => {
           <p className="font-light">
             <span className="font-semibold">Currencies:</span>{" "}
             {Object.values(country.currencies).map((i) => (
-              <>{i.name}</>
+              <React.Fragment key={i.name}>{i.name}</React.Fragment>
             ))}
           </p>
           <p className="font-light">
             <span className="font-semibold">Languages:</span>{" "}
-            {Object.values(country.languages).map((language, index) => {
-              if (index < Object.values(country.languages).length - 1) {
-                return <>{language}, </>
-              } else {
-                return <>{language}</>
-              }
-            })}
+            {Object.values(country.languages)
+              .sort()
+              .map((language, index) => {
+                if (index < Object.values(country.languages).length - 1) {
+                  return (
+                    <React.Fragment key={language}>{language}, </React.Fragment>
+                  )
+                } else {
+                  return (
+                    <React.Fragment key={language}>{language}</React.Fragment>
+                  )
+                }
+              })}
           </p>
         </div>
 
@@ -104,7 +110,10 @@ const SingleCountry = ({ country }) => {
             <div className="flex text-sm flex-wrap gap-4 content-evenly">
               {country.borders.map((borderCountry) => {
                 return (
-                  <div className="bg-lightelement dark:bg-darkelement py-1 px-5 text-xs rounded">
+                  <div
+                    key={borderCountry}
+                    className="bg-lightelement dark:bg-darkelement py-1 px-5 text-xs rounded"
+                  >
                     {convertToCommonName(borderCountry)}
                   </div>
                 )
