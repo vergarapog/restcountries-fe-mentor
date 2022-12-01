@@ -44,11 +44,11 @@ const SingleCountry = ({ country }) => {
           </button>
         </Link>
       </div>
-      <div className="md:grid grid-cols-2 gap-28">
-        <div className=" text-lighttext dark:text-darktext max-h-52  md:mt-12">
+      <div className="lg:grid grid-cols-2 gap-28">
+        <div className=" text-lighttext dark:text-darktext max-h-52  lg:mt-12">
           <img
             src={country.flags.png}
-            className="w-full ss:max-w-md h-52 md:object-cover md:h-96 "
+            className="max-w-md sm:max-w-none h-52 lg:object-cover lg:h-96 "
             alt=""
           />
         </div>
