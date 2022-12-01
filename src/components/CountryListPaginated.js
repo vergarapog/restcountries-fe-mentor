@@ -69,7 +69,7 @@ const CountryListPaginated = ({ itemsPerPage }) => {
 const Countries = ({ countries }) => {
   return (
     <div>
-      <div className="py-5 grid grid-cols-1 ss:grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-9 justify-items-center items-center rounded min-h-[600px]">
+      <div className="py-5 grid grid-cols-1 ss:grid-cols-2  lg:grid-cols-4 gap-9 justify-items-center items-center rounded min-h-[600px]">
         {countries.map((country) => {
           return (
             <Link

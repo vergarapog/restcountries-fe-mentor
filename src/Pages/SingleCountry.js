@@ -44,83 +44,91 @@ const SingleCountry = ({ country }) => {
           </button>
         </Link>
       </div>
-      <div className="bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext max-h-52">
-        <img src={country.flags.png} className="w-full h-52" alt="" />
-      </div>{" "}
-      <div className=" p-4  text-lighttext dark:text-darktext">
-        <h2 className="mt-8 font-extrabold text-xl">{country.name.common}</h2>
-        <div className="pt-4 text-sm space-y-3">
-          <div className="font-light flex space-x-2">
-            <span className="font-semibold">Native name:</span>
-            <ul>
-              {" "}
-              {Object.values(country.name.nativeName).map((name) => {
-                return <li key={name.common}>- {name.common}</li>
-              })}
-            </ul>
-          </div>
-          <p className="font-light">
-            <span className="font-semibold">Population:</span>{" "}
-            {country.population.toLocaleString()}
-          </p>
-          <p className="font-light">
-            <span className="font-semibold">Region:</span> {country.region}
-          </p>
-          <p className="font-light">
-            <span className="font-semibold">Sub Region:</span>{" "}
-            {country.subregion}
-          </p>
-          <p className="font-light">
-            <span className="font-semibold">Capital:</span> {country.capital}
-          </p>
+      <div className="md:grid grid-cols-2 gap-28">
+        <div className=" text-lighttext dark:text-darktext max-h-52  md:mt-12">
+          <img
+            src={country.flags.png}
+            className="w-full ss:max-w-md h-52 md:object-cover md:h-96 "
+            alt=""
+          />
         </div>
-
-        <div className="pt-12 text-sm space-y-3">
-          <p className="font-light">
-            <span className="font-semibold">Top Level Domain:</span>{" "}
-            {country.tld}
-          </p>
-          <p className="font-light">
-            <span className="font-semibold">Currencies:</span>{" "}
-            {Object.values(country.currencies).map((i) => (
-              <React.Fragment key={i.name}>{i.name}</React.Fragment>
-            ))}
-          </p>
-          <p className="font-light">
-            <span className="font-semibold">Languages:</span>{" "}
-            {Object.values(country.languages)
-              .sort()
-              .map((language, index) => {
-                if (index < Object.values(country.languages).length - 1) {
-                  return (
-                    <React.Fragment key={language}>{language}, </React.Fragment>
-                  )
-                } else {
-                  return (
-                    <React.Fragment key={language}>{language}</React.Fragment>
-                  )
-                }
-              })}
-          </p>
-        </div>
-
-        {country.borders && (
-          <div className="pt-12 space-y-3">
-            <h2>Border Countries:</h2>
-            <div className="flex text-sm flex-wrap gap-4 content-evenly">
-              {country.borders.map((borderCountry) => {
-                return (
-                  <div
-                    key={borderCountry}
-                    className="bg-lightelement dark:bg-darkelement py-1 px-5 text-xs rounded"
-                  >
-                    {convertToCommonName(borderCountry)}
-                  </div>
-                )
-              })}
+        <div className="p-4 text-lighttext dark:text-darktext">
+          <h2 className="mt-8 font-extrabold text-xl">{country.name.common}</h2>
+          <div className="pt-4 text-sm space-y-3">
+            <div className="font-light flex space-x-2">
+              <span className="font-semibold">Native name:</span>
+              <ul>
+                {" "}
+                {Object.values(country.name.nativeName).map((name) => {
+                  return <li key={name.common}>- {name.common}</li>
+                })}
+              </ul>
             </div>
+            <p className="font-light">
+              <span className="font-semibold">Population:</span>{" "}
+              {country.population.toLocaleString()}
+            </p>
+            <p className="font-light">
+              <span className="font-semibold">Region:</span> {country.region}
+            </p>
+            <p className="font-light">
+              <span className="font-semibold">Sub Region:</span>{" "}
+              {country.subregion}
+            </p>
+            <p className="font-light">
+              <span className="font-semibold">Capital:</span> {country.capital}
+            </p>
           </div>
-        )}
+
+          <div className="pt-12 text-sm space-y-3">
+            <p className="font-light">
+              <span className="font-semibold">Top Level Domain:</span>{" "}
+              {country.tld}
+            </p>
+            <p className="font-light">
+              <span className="font-semibold">Currencies:</span>{" "}
+              {Object.values(country.currencies).map((i) => (
+                <React.Fragment key={i.name}>{i.name}</React.Fragment>
+              ))}
+            </p>
+            <p className="font-light">
+              <span className="font-semibold">Languages:</span>{" "}
+              {Object.values(country.languages)
+                .sort()
+                .map((language, index) => {
+                  if (index < Object.values(country.languages).length - 1) {
+                    return (
+                      <React.Fragment key={language}>
+                        {language},{" "}
+                      </React.Fragment>
+                    )
+                  } else {
+                    return (
+                      <React.Fragment key={language}>{language}</React.Fragment>
+                    )
+                  }
+                })}
+            </p>
+          </div>
+
+          {country.borders && (
+            <div className="pt-12 space-y-3">
+              <h2>Border Countries:</h2>
+              <div className="flex text-sm flex-wrap gap-4 content-evenly">
+                {country.borders.map((borderCountry) => {
+                  return (
+                    <div
+                      key={borderCountry}
+                      className="bg-lightelement dark:bg-darkelement py-1 px-5 text-xs rounded"
+                    >
+                      {convertToCommonName(borderCountry)}
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </section>
   )
