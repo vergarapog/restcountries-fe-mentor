@@ -6,23 +6,12 @@ import App from "./App"
 import { AppProvider } from "./context"
 
 import { Provider } from "react-redux"
-import { configureStore } from "@reduxjs/toolkit"
-
-import countriesReducer from "./reducers/countriesReducer"
-import searchFilterReducer from "./reducers/searchFilterReducer"
-import regionFilterReducer from "./reducers/regionFilterReducer"
 
 import { BrowserRouter as Router } from "react-router-dom"
 
 import ScrollToTop from "./components/ScrollToTop"
 
-const store = configureStore({
-  reducer: {
-    countries: countriesReducer,
-    searchFilter: searchFilterReducer,
-    regionFilter: regionFilterReducer,
-  },
-})
+import store from "./reducers/store"
 
 const root = ReactDOM.createRoot(document.getElementById("root"))
 root.render(

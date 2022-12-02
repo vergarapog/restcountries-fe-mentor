@@ -14,7 +14,8 @@ const SingleCountry = ({ country }) => {
       return country.cca3 === cca3Code
     })
 
-    return foundCountry.name.common
+    const commonName = foundCountry ? foundCountry.name.common : ""
+    return commonName
   }
 
   if (!country) {
