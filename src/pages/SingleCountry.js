@@ -44,7 +44,7 @@ const SingleCountry = ({ country }) => {
           </button>
         </Link>
       </div>
-      <div className="lg:grid grid-cols-2 gap-28">
+      <div className="lg:grid grid-cols-2 gap-28 min-h-[70vh]">
         <div className=" text-lighttext dark:text-darktext max-h-52  lg:mt-12">
           <img
             src={country.flags.png}
@@ -53,8 +53,10 @@ const SingleCountry = ({ country }) => {
           />
         </div>
         <div className="p-4 text-lighttext dark:text-darktext">
-          <h2 className="mt-8 font-extrabold text-xl">{country.name.common}</h2>
-          <div className="pt-4 text-sm space-y-3">
+          <h2 className="mt-8 font-extrabold text-xl md:text-2xl">
+            {country.name.common}
+          </h2>
+          <div className="pt-4 text-sm md:text-base space-y-3">
             <div className="font-light flex space-x-2">
               <span className="font-semibold">Native name:</span>
               <ul>
@@ -80,7 +82,7 @@ const SingleCountry = ({ country }) => {
             </p>
           </div>
 
-          <div className="pt-12 text-sm space-y-3">
+          <div className="pt-12 text-sm md:text-base space-y-3">
             <p className="font-light">
               <span className="font-semibold">Top Level Domain:</span>{" "}
               {country.tld}
