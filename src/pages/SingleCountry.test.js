@@ -218,4 +218,9 @@ test("renders single country page with belgium", async () => {
       </Provider>
     </Router>
   )
+
+  const countryName = await screen.findByText("Belgium")
+  const population = await screen.findByText("11,555,997")
+  expect(countryName).toBeDefined()
+  expect(population).toBeDefined()
 })
