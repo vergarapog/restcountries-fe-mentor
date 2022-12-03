@@ -116,13 +116,13 @@ const SingleCountry = ({ country }) => {
 
           {country.borders && (
             <div className="pt-12 space-y-3">
-              <h2>Border Countries:</h2>
-              <div className="flex text-sm flex-wrap gap-4 content-evenly">
+              <h2 className="md:text-lg">Border Countries:</h2>
+              <div className="flex text-sm md:text-base flex-wrap gap-4 content-evenly">
                 {country.borders.map((borderCountry) => {
                   return (
                     <div
                       key={borderCountry}
-                      className="bg-lightelement dark:bg-darkelement py-1 px-5 text-xs rounded"
+                      className="bg-lightelement dark:bg-darkelement py-1 px-5 text-xs md:text-base rounded"
                     >
                       {convertToCommonName(borderCountry)}
                     </div>
