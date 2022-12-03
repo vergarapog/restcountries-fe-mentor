@@ -88,7 +88,7 @@ const Countries = ({ countries }) => {
 const Country = ({ country }) => {
   const { name, population, region, capital, flags } = country
   return (
-    <div className="grid grid-rows-2 w-64 h-80 bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext">
+    <div className="grid grid-rows-2 shadow-lg w-64 h-80 bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext">
       {" "}
       <div className="">
         <img src={flags.png} className="w-full h-full" alt="" />
