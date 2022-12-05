@@ -3,11 +3,14 @@ import { Link } from "react-router-dom"
 import { ArrowLeft } from "phosphor-react"
 import Loading from "../components/Loading"
 import { useSelector } from "react-redux"
+import { useNavigate } from "react-router-dom"
 
 const SingleCountry = ({ country }) => {
   const countries = useSelector((state) => {
     return state.countries
   })
+
+  const navigate = useNavigate()
 
   const convertToCommonName = (cca3Code) => {
     const foundCountry = countries.find((country) => {
@@ -22,11 +25,12 @@ const SingleCountry = ({ country }) => {
     return (
       <section>
         <div>
-          <Link to="/">
-            <button className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement">
-              <ArrowLeft size={"22px"} /> <div>Back</div>
-            </button>
-          </Link>
+          <button
+            onClick={() => navigate(-1)}
+            className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement"
+          >
+            <ArrowLeft size={"22px"} /> <div>Back</div>
+          </button>
         </div>
         <div className="flex items-center justify-center text-lighttext dark:text-darktext text-2xl min-h-[70vh]">
           <div>
@@ -49,7 +53,7 @@ const SingleCountry = ({ country }) => {
         <div className=" text-lighttext dark:text-darktext max-h-52  lg:mt-12">
           <img
             src={country.flags.png}
-            className="max-w-md sm:max-w-none h-52 lg:object-cover lg:h-96 "
+            className="max-w- sm:max-w-2xl h-52 lg:object-cover lg:h-96 "
             alt=""
           />
         </div>
