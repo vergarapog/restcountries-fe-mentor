@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import ReactPaginate from "react-paginate"
 import { useSelector } from "react-redux"
 import Loading from "./Loading"
