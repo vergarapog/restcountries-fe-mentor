@@ -1,33 +1,34 @@
-import React from "react"
-import styles from "./style"
+import React from "react";
+import styles from "./style";
 
-import { useGlobalContext } from "./context"
+import { useGlobalContext } from "./context";
 
-import Navbar from "./components/Navbar"
-import Home from "./pages/Home"
-import Footer from "./components/Footer"
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Footer from "./components/Footer";
 
-import { useDispatch, useSelector } from "react-redux"
-import { useEffect } from "react"
-import { initializeCountries } from "./reducers/countriesReducer"
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { initializeCountries } from "./reducers/countriesReducer";
 
-import { Routes, Route, useMatch } from "react-router-dom"
-import SingleCountry from "./pages/SingleCountry"
+import { Routes, Route, useMatch } from "react-router-dom";
+import SingleCountry from "./pages/SingleCountry";
 
 const App = () => {
-  const { isDarkMode, getDarkModePref } = useGlobalContext()
-  const dispatch = useDispatch()
-  const countries = useSelector((state) => state.countries)
+  const { isDarkMode, getDarkModePref } = useGlobalContext();
+  const dispatch = useDispatch();
+  const countries = useSelector((state) => state.countries);
 
   useEffect(() => {
-    dispatch(initializeCountries())
-    getDarkModePref()
-  }, [])
+    dispatch(initializeCountries());
+    getDarkModePref();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
-  const match = useMatch("/country/:id")
+  const match = useMatch("/country/:id");
   const country = match
     ? countries.find((country) => country.name.common === match.params.id)
-    : null
+    : null;
 
   return (
     <div
@@ -58,7 +59,7 @@ const App = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;

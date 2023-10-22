@@ -1,12 +1,11 @@
-import React from "react"
-import "@testing-library/jest-dom/extend-expect"
-import { render, screen } from "@testing-library/react"
-import userEvent from "@testing-library/user-event"
-import SingleCountry from "./SingleCountry"
-import { Provider } from "react-redux"
+import React from "react";
+import "@testing-library/jest-dom/extend-expect";
+import { render, screen } from "@testing-library/react";
+import SingleCountry from "./SingleCountry";
+import { Provider } from "react-redux";
 
-import store from "../reducers/store"
-import { MemoryRouter as Router } from "react-router-dom"
+import store from "../reducers/store";
+import { MemoryRouter as Router } from "react-router-dom";
 
 test("renders single country page with belgium given as props", async () => {
   const country = {
@@ -209,7 +208,7 @@ test("renders single country page with belgium given as props", async () => {
       format: "####",
       regex: "^(d{4})$",
     },
-  }
+  };
 
   render(
     <Router>
@@ -217,20 +216,20 @@ test("renders single country page with belgium given as props", async () => {
         <SingleCountry country={country} />
       </Provider>
     </Router>
-  )
+  );
 
-  const countryName = await screen.findByText("Belgium")
-  const population = await screen.findByText("11,555,997")
-  const region = await screen.findByText("Europe")
-  const subRegion = await screen.findByText("Western Europe")
-  const capital = await screen.findByText("Brussels")
+  const countryName = await screen.findByText("Belgium");
+  const population = await screen.findByText("11,555,997");
+  const region = await screen.findByText("Europe");
+  const subRegion = await screen.findByText("Western Europe");
+  const capital = await screen.findByText("Brussels");
 
-  expect(countryName).toBeDefined()
-  expect(population).toBeDefined()
-  expect(region).toBeDefined()
-  expect(subRegion).toBeDefined()
-  expect(capital).toBeDefined()
-})
+  expect(countryName).toBeDefined();
+  expect(population).toBeDefined();
+  expect(region).toBeDefined();
+  expect(subRegion).toBeDefined();
+  expect(capital).toBeDefined();
+});
 
 test("renders single country page with philippines given as props", async () => {
   const country = {
@@ -421,7 +420,7 @@ test("renders single country page with philippines given as props", async () => 
       format: "####",
       regex: "^(d{4})$",
     },
-  }
+  };
 
   render(
     <Router>
@@ -429,17 +428,17 @@ test("renders single country page with philippines given as props", async () => 
         <SingleCountry country={country} />
       </Provider>
     </Router>
-  )
+  );
 
-  const countryName = await screen.findByText("Philippines")
-  const population = await screen.findByText("109,581,085")
-  const region = await screen.findByText("Asia")
-  const subRegion = await screen.findByText("South-Eastern Asia")
-  const capital = await screen.findByText("Manila")
+  const countryName = await screen.findByText("Philippines");
+  const population = await screen.findByText("109,581,085");
+  const region = await screen.findByText("Asia");
+  const subRegion = await screen.findByText("South-Eastern Asia");
+  const capital = await screen.findByText("Manila");
 
-  expect(countryName).toBeDefined()
-  expect(population).toBeDefined()
-  expect(region).toBeDefined()
-  expect(subRegion).toBeDefined()
-  expect(capital).toBeDefined()
-})
+  expect(countryName).toBeDefined();
+  expect(population).toBeDefined();
+  expect(region).toBeDefined();
+  expect(subRegion).toBeDefined();
+  expect(capital).toBeDefined();
+});
