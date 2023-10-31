@@ -1,25 +1,25 @@
-import React from "react"
-import { Link } from "react-router-dom"
-import { ArrowLeft } from "phosphor-react"
-import Loading from "../components/Loading"
-import { useSelector } from "react-redux"
-import { useNavigate } from "react-router-dom"
+import React from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "phosphor-react";
+import Loading from "../components/Loading";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 const SingleCountry = ({ country }) => {
   const countries = useSelector((state) => {
-    return state.countries
-  })
+    return state.countries;
+  });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const convertToCommonName = (cca3Code) => {
     const foundCountry = countries.find((country) => {
-      return country.cca3 === cca3Code
-    })
+      return country.cca3 === cca3Code;
+    });
 
-    const commonName = foundCountry ? foundCountry.name.common : ""
-    return commonName
-  }
+    const commonName = foundCountry ? foundCountry.name.common : "";
+    return commonName;
+  };
 
   if (!country) {
     return (
@@ -27,7 +27,7 @@ const SingleCountry = ({ country }) => {
         <div>
           <button
             onClick={() => navigate(-1)}
-            className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement"
+            className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement hover:bg-darkelement hover:text-white dark:hover:bg-lightelement dark:hover:text-black transition-all"
           >
             <ArrowLeft size={"22px"} /> <div>Back</div>
           </button>
@@ -38,13 +38,13 @@ const SingleCountry = ({ country }) => {
           </div>
         </div>
       </section>
-    )
+    );
   }
   return (
     <section>
       <div>
         <Link to="/">
-          <button className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement">
+          <button className="flex items-center space-x-1 my-8 px-4 py-2 shadow-sm shadow-slate-700 bg-lightelement dark:bg-darkelement hover:bg-darkelement hover:text-white dark:hover:bg-lightelement dark:hover:text-black transition-all">
             <ArrowLeft size={"22px"} /> <div>Back</div>
           </button>
         </Link>
@@ -67,7 +67,7 @@ const SingleCountry = ({ country }) => {
               <ul>
                 {" "}
                 {Object.values(country.name.nativeName).map((name) => {
-                  return <li key={name.common}>- {name.common}</li>
+                  return <li key={name.common}>- {name.common}</li>;
                 })}
               </ul>
             </div>
@@ -108,11 +108,11 @@ const SingleCountry = ({ country }) => {
                       <React.Fragment key={language}>
                         {language},{" "}
                       </React.Fragment>
-                    )
+                    );
                   } else {
                     return (
                       <React.Fragment key={language}>{language}</React.Fragment>
-                    )
+                    );
                   }
                 })}
             </p>
@@ -130,7 +130,7 @@ const SingleCountry = ({ country }) => {
                     >
                       {convertToCommonName(borderCountry)}
                     </div>
-                  )
+                  );
                 })}
               </div>
             </div>
@@ -138,7 +138,7 @@ const SingleCountry = ({ country }) => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
-export default SingleCountry
+export default SingleCountry;

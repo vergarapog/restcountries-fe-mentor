@@ -1,42 +1,42 @@
-import React, { useState } from "react"
-import ReactPaginate from "react-paginate"
-import { useSelector } from "react-redux"
-import Loading from "./Loading"
-import { Link } from "react-router-dom"
+import React, { useState } from "react";
+import ReactPaginate from "react-paginate";
+import { useSelector } from "react-redux";
+import Loading from "./Loading";
+import { Link } from "react-router-dom";
 
 const CountryListPaginated = ({ itemsPerPage }) => {
   const countries = useSelector((state) => {
     if (state.searchFilter === "") {
-      return state.countries
+      return state.countries;
     } else {
       return state.countries.filter((country) => {
         return country.name.official
           .toLowerCase()
-          .includes(state.searchFilter.toLowerCase())
-      })
+          .includes(state.searchFilter.toLowerCase());
+      });
     }
-  })
+  });
 
   // Here we use item offsets; we could also use page offsets
   // following the API or data you're working with.
-  const [itemOffset, setItemOffset] = useState(0)
+  const [itemOffset, setItemOffset] = useState(0);
 
   // Simulate fetching items from another resources.
   // (This could be items from props; or items loaded in a local state
   // from an API endpoint with useEffect and useState)
-  const endOffset = itemOffset + itemsPerPage
+  const endOffset = itemOffset + itemsPerPage;
   // console.log(`Loading items from ${itemOffset} to ${endOffset}`)
-  const currentItems = countries.slice(itemOffset, endOffset)
-  const pageCount = Math.ceil(countries.length / itemsPerPage)
+  const currentItems = countries.slice(itemOffset, endOffset);
+  const pageCount = Math.ceil(countries.length / itemsPerPage);
 
   // Invoke when user click to request another page.
   const handlePageClick = (event) => {
-    const newOffset = (event.selected * itemsPerPage) % countries.length
+    const newOffset = (event.selected * itemsPerPage) % countries.length;
     // console.log(
     //   `User requested page number ${event.selected}, which is offset ${newOffset}`
     // )
-    setItemOffset(newOffset)
-  }
+    setItemOffset(newOffset);
+  };
 
   if (countries.length === 0) {
     return (
@@ -45,7 +45,7 @@ const CountryListPaginated = ({ itemsPerPage }) => {
           <Loading />
         </div>
       </div>
-    )
+    );
   }
 
   return (
@@ -63,8 +63,8 @@ const CountryListPaginated = ({ itemsPerPage }) => {
         activeLinkClassName="p-1.5 rounded bg-lighttext text-darktext dark:bg-darktext dark:text-lighttext"
       />
     </>
-  )
-}
+  );
+};
 
 const Countries = ({ countries }) => {
   return (
@@ -78,17 +78,17 @@ const Countries = ({ countries }) => {
             >
               <Country country={country} />
             </Link>
-          )
+          );
         })}
       </div>
     </div>
-  )
-}
+  );
+};
 
 const Country = ({ country }) => {
-  const { name, population, region, capital, flags } = country
+  const { name, population, region, capital, flags } = country;
   return (
-    <div className="grid grid-rows-2 shadow-lg w-64 h-80 bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext">
+    <div className="grid grid-rows-2 shadow-lg w-64 h-80 bg-lightelement dark:bg-darkelement text-lighttext dark:text-darktext hover:-translate-y-3 transition-all">
       {" "}
       <div className="">
         <img src={flags.png} className="w-full h-full" alt="" />
@@ -109,7 +109,7 @@ const Country = ({ country }) => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default CountryListPaginated
+export default CountryListPaginated;

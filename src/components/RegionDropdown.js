@@ -1,24 +1,24 @@
-import React from "react"
-import { useGlobalContext } from "../context"
-import { useDispatch, useSelector } from "react-redux"
-import { setRegionFilter } from "../reducers/regionFilterReducer"
-import { changeRegion } from "../reducers/countriesReducer"
-import { clearCountries } from "../reducers/countriesReducer"
+import React from "react";
+import { useGlobalContext } from "../context";
+import { useDispatch, useSelector } from "react-redux";
+import { setRegionFilter } from "../reducers/regionFilterReducer";
+import { changeRegion } from "../reducers/countriesReducer";
+import { clearCountries } from "../reducers/countriesReducer";
 
 const RegionDropdown = () => {
-  const { isDarkMode } = useGlobalContext()
-  const dispatch = useDispatch()
-  const selected = useSelector((state) => state.regionFilter)
+  const { isDarkMode } = useGlobalContext();
+  const dispatch = useDispatch();
+  const selected = useSelector((state) => state.regionFilter);
 
   const handleChangeRegion = (e) => {
-    dispatch(clearCountries())
-    dispatch(setRegionFilter(e.target.value))
-    dispatch(changeRegion(e.target.value))
-  }
+    dispatch(clearCountries());
+    dispatch(setRegionFilter(e.target.value));
+    dispatch(changeRegion(e.target.value));
+  };
   return (
-    <div className="relative w-52 text-lighttext dark:text-darktext">
+    <div className="relative w-52 text-lighttext dark:text-darktext ">
       <select
-        className="appearance-none w-full bg-lightbg dark:bg-darkelement px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none"
+        className="appearance-none w-full bg-lightbg dark:bg-darkelement px-4 py-3 pr-8 rounded shadow leading-tight focus:outline-none hover:cursor-pointer "
         value={selected}
         onChange={handleChangeRegion}
       >
@@ -46,7 +46,7 @@ const RegionDropdown = () => {
         </svg>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default RegionDropdown
+export default RegionDropdown;
